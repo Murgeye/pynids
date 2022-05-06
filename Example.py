@@ -43,7 +43,7 @@ def main():
     nids.chksum_ctl([('0.0.0.0/0', False)]) # disable checksumming
 
     if len(sys.argv) == 2:                  # read a pcap file?
-        nids.param("filename", sys.argv[1])
+        nids.param("filename", sys.argv[1].encode())
 
     nids.init()
 
