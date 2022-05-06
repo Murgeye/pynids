@@ -12,7 +12,7 @@ import os, os.path
 
 pathjoin = os.path.join
 
-PKGNAME  = 'libnids-1.25'
+PKGNAME  = 'libnids-1.26'
 PKGTAR   = PKGNAME + '.tar.gz'
 BUILDDIR = PKGNAME
 
