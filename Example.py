@@ -35,12 +35,12 @@ def handleTcpStream(tcp):
 
 def main():
 
-    # nids.param("pcap_filter", "tcp")      # bpf restrict to TCP only, note
+    nids.param("pcap_filter", b"tcp")      # bpf restrict to TCP only, note
                                             # libnids caution about fragments
 
     nids.param("scan_num_hosts", 0)         # disable portscan detection
 
-    nids.chksum_ctl([('0.0.0.0/0', False)]) # disable checksumming
+    nids.chksum_ctl([(b'0.0.0.0/0', False)]) # disable checksumming
 
     if len(sys.argv) == 2:                  # read a pcap file?
         nids.param("filename", sys.argv[1].encode())

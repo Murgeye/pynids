@@ -538,10 +538,6 @@ static int _parse_chksum_tuple(struct nids_chksum_ctl *ctl, int i, PyObject *tup
     PyObject *addr, *action;
 
     addr = PyTuple_GET_ITEM(tuple, 0);
-    if (PyUnicode_Check(addr) <= 0) {
-        PyErr_SetString(PyExc_TypeError, "in (cidr_address, action) cidr_address must be string");
-        return -1;
-    }
     if (_parse_prefix(PyBytes_AS_STRING( addr), &ctl[i].netaddr, &ctl[i].mask) < 0)
         return -1;
 

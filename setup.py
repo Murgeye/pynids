@@ -31,11 +31,10 @@ class nidsMaker(build):
         # extremely crude package builder
         try:
             os.stat(self.NIDSDIR)
-            return None           # assume already built
+            #return None           # assume already built
         except OSError:
-            pass
+            spawn(['tar', '-zxf', self.NIDSTAR], search_path = 1)
 
-        spawn(['tar', '-zxf', self.NIDSTAR], search_path = 1)
         os.chdir(self.NIDSDIR)
         spawn([pathjoin('.','configure'), 'CFLAGS=-fPIC', '--disable-libglib', '--disable-libnet'])
         spawn(['make'], search_path = 1)
